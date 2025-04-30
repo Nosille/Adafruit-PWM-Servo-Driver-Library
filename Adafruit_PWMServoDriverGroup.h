@@ -2,7 +2,7 @@
  *  @file Adafruit_PWMServoDriverGroup.h
  *
  *  This Library sets up a group of Adafruit_PWMServoDrivers
- *  to act like a Adafruit_PWMServoDrivers object
+ *  to act like a single Adafruit_PWMServoDrivers object
  * 
  *
  *  Designed specifically to work with the Adafruit 16-channel PWM & Servo
@@ -28,7 +28,6 @@
 class Adafruit_PWMServoDriverGroup {
   public:
 
-    Adafruit_PWMServoDriverGroup(const uint8_t ndrivers, const uint8_t nServosEach);
     Adafruit_PWMServoDriverGroup(const uint8_t ndrivers, const uint8_t nServosEach, const uint8_t *addr);
     Adafruit_PWMServoDriverGroup(const uint8_t ndrivers, const uint8_t nServosEach, const uint8_t *addr, TwoWire &i2c);
 

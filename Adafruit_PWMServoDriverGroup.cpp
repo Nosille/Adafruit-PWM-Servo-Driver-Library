@@ -1,23 +1,6 @@
 #include "Adafruit_PWMServoDriverGroup.h"
 
 /*!
- *  @brief  Instantiates new PCA9685 PWM driver chips with consecutive 
- *  I2C addresses begining with the default on a TwoWire interface
- *  @param  nDrivers Number of PWM driver chips to instantiate
- *  @param  nServosEach Number of servos to allocate on each driver
- */
-Adafruit_PWMServoDriverGroup::Adafruit_PWMServoDriverGroup(const uint8_t nDrivers, const uint8_t nServosEach) {
-  _nDrivers = nDrivers;
-  _nServosEach = nServosEach;
-
-  _drivers = (Adafruit_PWMServoDriver **) malloc(nDrivers * sizeof(Adafruit_PWMServoDriver *));
-
-  for(uint8_t i=0; i < _nDrivers; i++) {
-    _drivers[i] = new Adafruit_PWMServoDriver(PCA9685_I2C_ADDRESS + i);
-  }
-}
-
-/*!
  *  @brief  Instantiates new PCA9685 PWM driver chips with user defined 
  *  I2C addresses on a TwoWire interface
  *  @param  nDrivers Number of PWM driver chips to instantiate
@@ -75,7 +58,7 @@ uint8_t Adafruit_PWMServoDriverGroup::getNumServos() {
 
 /*!
  *  @brief  Gets the Adafruit_PWMServoDriver associated with a given servo and 
- *  the servo number on that device
+ *  the local servo number on that device
  *  @param  num Number of servo in master list
  *  @param  localId returns the number of the servo as known to the PCA9685 chip
  *  @return The Adafruit_PWMServoDriver associated with the requested servo
@@ -218,6 +201,15 @@ void Adafruit_PWMServoDriverGroup::writeMicroseconds(uint8_t num, uint16_t micro
  *  @returns The frequency the PCA9685 thinks it is running at (it cannot
  * introspect)
  */
+uint32_t Adafruit_PWMServoDriverGroup::getOscillatorFrequency(uint8_t id){
+  return _drivers[id]->getOscillatorFrequency();
+}
+
+/*!
+ *  @brief Setter for the internally tracked oscillator used for freq
+ * calculations
+ *  @param freq The frequency the PCA9685 should use for frequency calculations
+ */
 void Adafruit_PWMServoDriverGroup::setOscillatorFrequency(uint32_t freq){
   for(int i = 0; i < _nDrivers; i++) _drivers[i]->setOscillatorFrequency(freq);
 }
@@ -226,11 +218,3 @@ void Adafruit_PWMServoDriverGroup::setOscillatorFrequency(uint8_t id, uint32_t f
    _drivers[id]->setOscillatorFrequency(freq);
 }
 
-/*!
- *  @brief Setter for the internally tracked oscillator used for freq
- * calculations
- *  @param freq The frequency the PCA9685 should use for frequency calculations
- */
-uint32_t Adafruit_PWMServoDriverGroup::getOscillatorFrequency(uint8_t id){
-  return _drivers[id]->getOscillatorFrequency();
-}
