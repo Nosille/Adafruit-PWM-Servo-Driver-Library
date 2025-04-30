@@ -218,4 +218,3 @@ void Adafruit_PWMServoDriverGroup::setOscillatorFrequency(uint8_t id, uint32_t f
    _drivers[id]->setOscillatorFrequency(freq);
 }
 
-
