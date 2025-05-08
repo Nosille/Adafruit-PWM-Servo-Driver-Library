@@ -28,11 +28,9 @@
 class Adafruit_PWMServoDriverGroup {
 public:
   Adafruit_PWMServoDriverGroup(const uint8_t ndrivers,
-                               const uint8_t nServosEach, 
-                               const uint8_t *addr);
+                               const uint8_t nServosEach, const uint8_t *addr);
   Adafruit_PWMServoDriverGroup(const uint8_t ndrivers,
-                               const uint8_t nServosEach, 
-                               const uint8_t *addr,
+                               const uint8_t nServosEach, const uint8_t *addr,
                                TwoWire &i2c);
 
   Adafruit_PWMServoDriver *getDriver(uint8_t num, uint8_t &localNum);

@@ -10,7 +10,7 @@
  */
 Adafruit_PWMServoDriverGroup::Adafruit_PWMServoDriverGroup(
     const uint8_t nDrivers, const uint8_t nServosEach, const uint8_t *addr) {
-  _nDrivers = nDrivers;
+  _nDriversrew install clang-forma = nDrivers;
   _nServosEach = nServosEach;
 
   _drivers = (Adafruit_PWMServoDriver **)malloc(
@@ -46,9 +46,7 @@ Adafruit_PWMServoDriverGroup::Adafruit_PWMServoDriverGroup(
 
 /*  @brief Gets the number of PCA9685 PWM driver chips connected to this class
  */
-uint8_t Adafruit_PWMServoDriverGroup::getNumDrivers() { 
-  return _nDrivers; 
-}
+uint8_t Adafruit_PWMServoDriverGroup::getNumDrivers() { return _nDrivers; }
 
 /*  @brief Gets the number of servos associated with each PCA9685 PWM chip
  */
