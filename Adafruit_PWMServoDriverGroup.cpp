@@ -224,7 +224,7 @@ void Adafruit_PWMServoDriverGroup::writeMicroseconds(uint8_t num,
 /*!
  *  @brief  Getter for the internally tracked oscillator used for freq
  * calculations
- * @param freq The id of the PCA9685 chip to get frequency for
+ *  @param id The id of the PCA9685 chip to get frequency from
  *  @returns The frequency the PCA9685 thinks it is running at (it cannot
  * introspect)
  */
