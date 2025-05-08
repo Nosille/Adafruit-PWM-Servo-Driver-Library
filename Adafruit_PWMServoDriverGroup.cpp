@@ -10,7 +10,7 @@
  */
 Adafruit_PWMServoDriverGroup::Adafruit_PWMServoDriverGroup(
     const uint8_t nDrivers, const uint8_t nServosEach, const uint8_t *addr) {
-  _nDriversrew install clang-forma = nDrivers;
+  _nDrivers = nDrivers;
   _nServosEach = nServosEach;
 
   _drivers = (Adafruit_PWMServoDriver **)malloc(
