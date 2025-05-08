@@ -15,11 +15,11 @@
 
 #include "Adafruit_PWMServoDriver.h"
 
-#define PCA9685_I2C_ADDRESS_1 0x40
-#define PCA9685_I2C_ADDRESS_2 0x41
-#define PCA9685_I2C_ADDRESS_3 0x42
-#define PCA9685_I2C_ADDRESS_4 0x43
-#define PCA9685_I2C_ADDRESS_5 0x44
+#define PCA9685_I2C_ADDRESS_1 0x40 /**< Default PCA9685 I2C Slave Address */
+#define PCA9685_I2C_ADDRESS_2 0x41 /**< Second I2C Slave Address */
+#define PCA9685_I2C_ADDRESS_3 0x42 /**< Third I2C Slave Address */
+#define PCA9685_I2C_ADDRESS_4 0x43 /**< Fourth I2C Slave Address */
+#define PCA9685_I2C_ADDRESS_5 0x44 /**< Fifth I2C Slave Address */
 
 /*!
  *  @brief  Class that stores state and functions for interacting with multiple

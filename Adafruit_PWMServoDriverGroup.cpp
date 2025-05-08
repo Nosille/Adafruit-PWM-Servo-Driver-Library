@@ -44,17 +44,20 @@ Adafruit_PWMServoDriverGroup::Adafruit_PWMServoDriverGroup(
   }
 }
 
-/*  @brief Gets the number of PCA9685 PWM driver chips connected to this class
+/*!
+ *  @brief Gets the number of PCA9685 PWM driver chips connected to this class
  */
 uint8_t Adafruit_PWMServoDriverGroup::getNumDrivers() { return _nDrivers; }
 
-/*  @brief Gets the number of servos associated with each PCA9685 PWM chip
+/*!
+ *  @brief Gets the number of servos associated with each PCA9685 PWM chip
  */
 uint8_t Adafruit_PWMServoDriverGroup::getNumServosEach() {
   return _nServosEach;
 }
 
-/*  @brief Gets the total number of servos associated with this class
+/*!
+ *  @brief Gets the total number of servos associated with this class
  */
 uint8_t Adafruit_PWMServoDriverGroup::getNumServos() {
   return _nDrivers * _nServosEach;
@@ -205,7 +208,7 @@ uint8_t Adafruit_PWMServoDriverGroup::readPrescale() {
  * microseconds, output is not precise
  *  @param  num One of the PWM output pins, from 0 to (nDrivers * nServosEach -
  * 1)
- *  @param  Microseconds The number of Microseconds to turn the PWM output ON
+ *  @param  microseconds The number of Microseconds to turn the PWM output ON
  */
 void Adafruit_PWMServoDriverGroup::writeMicroseconds(uint8_t num,
                                                      uint16_t microseconds) {
@@ -235,6 +238,12 @@ void Adafruit_PWMServoDriverGroup::setOscillatorFrequency(uint32_t freq) {
     _drivers[i]->setOscillatorFrequency(freq);
 }
 
+/*!
+ *  @brief Setter for the internally tracked oscillator used for freq
+ * calculations
+ *  @param id The id of the PCA9685 chip to set the frequency on
+ *  @param freq The frequency the PCA9685 should use for frequency calculations
+ */
 void Adafruit_PWMServoDriverGroup::setOscillatorFrequency(uint8_t id,
                                                           uint32_t freq) {
   _drivers[id]->setOscillatorFrequency(freq);
